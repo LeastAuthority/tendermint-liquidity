@@ -1,0 +1,10 @@
+panic: serialized messages don't match
+
+goroutine 1 [running]:
+github.com/tendermint/liquidity/x/liquidity/types.FuzzMsgSwapWithinBatch_structured(0x7fde618f9000, 0x1, 0x1, 0x3)
+	/tmp/fuzzing/x/liquidity/types/tx_fuzz.pb.go:69 +0x46e
+go-fuzz-dep.Main(0xc000e4bf68, 0x2, 0x2)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/tendermint/liquidity/x/liquidity/types/go.fuzz.main/main.go:17 +0x5d
+exit status 2

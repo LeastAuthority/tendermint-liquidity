@@ -1,0 +1,78 @@
+:ïabandon
+ability
+able
+about
+above
+absent
+absorb
+abstract
+absurd
+abuse
+access
+accident
+account
+accuse
+achieve
+acid
+acoustic
+acquire
+across
+act
+action
+actor
+actress
+actual
+adapt
+add
+addict
+addr{
+  "genesis_time": "2018-10-10T08:20:13.695936996Z",
+  "chain_id": "%s",
+  "initial_height": "1",
+	"consensus_params": {
+		"block": {
+			"max_bytes": "22020096",
+			"max_gas": "-1",
+			"time_iota_ms": "10"
+		},
+		"evidence": {
+			"max_age_num_blocks": "100000",
+			"max_age_duration": "172800000000000",
+			"max_bytes": "1048576"
+		},
+		"validator": {
+			"pub_key_types": [
+				"ed25519"
+			]
+		},
+		"version": {}
+	},
+  "validators": [
+    {
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value":"AT/+aaL1eB0477Mud9JMm8Sh8BIvOYlPGC9KkIUmFaE="
+      },
+      "power": "10",
+      "name": ""
+    }
+  ],
+  "app_hash": ""
+}
+{{template "Prolog" .}}
+{{template "StatusTable" .}}
+{{template "Epilog" .}}
+
+{{define "Prolog"}}
+<html>
+	<head>
+	<title>/debug/requests</title>
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+		table#tr-status td.family {
+			padding-right: 2em;
+		}
+		table#tr-status td.active {
+	

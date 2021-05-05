@@ -1,0 +1,83 @@
+:ïabandon
+ability
+able
+about
+above
+absent
+absorb
+abstract
+absurd
+abuse
+access
+accident
+account
+accuse
+achieve
+acid
+acoustic
+acquire
+across
+act
+action
+actor
+actress
+actual
+adapt
+add
+addict
+addr
+{{template "Prolog" .}}
+{{template "StatusTable" .}}
+{{template "Epilog" .}}
+
+{{define "Prolog"}}
+<html>
+	<head>
+	<title>/debug/requests</title>
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+		}
+		table#tr-status td.family {
+			padding-right: 2em;
+		}
+		table#tr-status td.active {
+			padding-right: 1em;
+		}
+		table#tr-status td.latency-first {
+			padding-left: 1em;
+		}
+		table#tr-status td.empty {
+			color: #aaa;
+		}
+		table#reqs {
+			margin-top: 1em;
+		}
+		table#reqs tr.first {
+			{{if $.Expanded}}font-weight: bold;{{end}}
+		}
+		table#reqs td {
+			font-family: monospace;
+		}
+		table#reqs td.when {
+			text-align: right;
+			white-space: nowrap;
+		}
+		table#reqs td.elapsed {
+			padding: 0 0.5em;
+			text-align: right;
+			white-space: pre;
+			width: 10em;
+		}
+		address {
+			font-size: smaller;
+			margin-top: 5em;
+		}
+	</style>
+	</head>
+	<body>
+
+<h1>/debug/requests</h1>
+{{end}} {{/* end of Prolog */}}
+
+{{define "StatusT
