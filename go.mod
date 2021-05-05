@@ -6,9 +6,11 @@ require (
 	github.com/cosmos/cosmos-sdk v0.42.4
 	github.com/gogo/protobuf v1.3.3
 	github.com/golang/protobuf v1.4.3
+	github.com/google/gofuzz v1.2.0
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.0.1
+	github.com/leastauthority/fleece v0.0.4-alpha
 	github.com/rakyll/statik v0.1.7
 	github.com/spf13/cast v1.3.1
 	github.com/spf13/cobra v1.1.1
