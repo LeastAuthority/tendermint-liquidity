@@ -1,0 +1,4 @@
+panic: serialized messages don't match
+github.com/tendermint/liquidity/x/liquidity/types.FuzzMsgWithdrawWithinBatch_structured
+go-fuzz-dep.Main
+main.main
