@@ -5,9 +5,9 @@ package types
 import (
 	"bytes"
 	"errors"
-
 	gofuzz "github.com/google/gofuzz"
 	fleece "github.com/leastauthority/fleece/fuzzing"
+	"reflect"
 )
 
 func FuzzMsgSwapWithinBatch_raw(data []byte) int {
@@ -24,6 +24,10 @@ func FuzzMsgSwapWithinBatch_raw(data []byte) int {
 	msg2 := MsgSwapWithinBatch{}
 	if err := msg2.Unmarshal(msg1Data); err != nil {
 		panic(err)
+	}
+
+	if !reflect.DeepEqual(msg1, msg2) {
+		panic(errors.New("deserialized messages didn't' match"))
 	}
 
 	msg2Data, err := msg1.Marshal()
