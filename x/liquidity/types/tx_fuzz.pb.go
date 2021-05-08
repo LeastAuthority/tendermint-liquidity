@@ -110,7 +110,7 @@ func FuzzMsgWithdrawWithinBatch_raw(data []byte) int {
 func FuzzMsgWithdrawWithinBatch_structured(data []byte) int {
 	msg1 := MsgWithdrawWithinBatch{}
 
-	if len(data) == 0 {
+	if len(data) == 0 || bytes.Equal(data, []byte{0}) {
 		return fleece.FuzzDiscard
 	}
 
