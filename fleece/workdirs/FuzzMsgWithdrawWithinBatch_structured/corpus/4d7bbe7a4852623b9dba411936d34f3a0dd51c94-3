@@ -1,0 +1,11 @@
+using namespace System.Management.Automation
+using namespace System.Management.Automation.Language
+Register-ArgumentCompleter -Native -CommandName '%s' -ScriptBlock {
+    param($wordToComplete, $commandAst, $cursorPosition)
+    $commandElements = $commandAst.CommandElements
+    $command = @(
+        '%s'
+        for ($i = 1; $i -lt $commandElements.Count; $i++) {
+            $element = $commandElements[$i]
+           if ($element -isnot [StringConstantExpressionAst] -or
+                $element.StringConstantType -ne [StringConstantType]:
