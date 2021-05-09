@@ -30,28 +30,19 @@ func FuzzMsgSwapWithinBatch_raw(data []byte) int {
 		panic(errors.New("deserialized messages didn't' match"))
 	}
 
-	msg2Data, err := msg1.Marshal()
-	if err != nil {
-		panic(err)
-	}
-
-	if !bytes.Equal(msg1Data, msg2Data) {
-		panic(errors.New("serialized messages didn't match"))
-	}
-
 	return fleece.FuzzInteresting
 }
 
 func FuzzMsgSwapWithinBatch_structured(data []byte) int {
 	msg1 := MsgSwapWithinBatch{}
 
-	if len(data) == 0 {
+	if len(data) == 0 || bytes.Equal(data, []byte{0}) {
 		return fleece.FuzzDiscard
 	}
 
 	f := gofuzz.NewFromGoFuzz(data)
 	f.NilChance(0)
-	f.NumElements(1, 100)
+	f.NumElements(1, 10)
 	f.Fuzz(&msg1)
 
 	msg1Data, err := msg1.Marshal()
@@ -64,13 +55,8 @@ func FuzzMsgSwapWithinBatch_structured(data []byte) int {
 		panic(err)
 	}
 
-	msg2Data, err := msg2.Marshal()
-	if err != nil {
-		panic(err)
-	}
-
-	if bytes.Equal(msg1Data, msg2Data) {
-		panic(errors.New("serialized messages don't match"))
+	if !reflect.DeepEqual(msg1, msg2) {
+		panic(errors.New("deserialized messages don't match"))
 	}
 
 	return fleece.FuzzNormal
@@ -95,15 +81,6 @@ func FuzzMsgWithdrawWithinBatch_raw(data []byte) int {
 		panic(errors.New("deserialized messages didn't' match"))
 	}
 
-	msg2Data, err := msg1.Marshal()
-	if err != nil {
-		panic(err)
-	}
-
-	if !bytes.Equal(msg1Data, msg2Data) {
-		panic(errors.New("serialized messages didn't match"))
-	}
-
 	return fleece.FuzzInteresting
 }
 
@@ -116,7 +93,7 @@ func FuzzMsgWithdrawWithinBatch_structured(data []byte) int {
 
 	f := gofuzz.NewFromGoFuzz(data)
 	f.NilChance(0)
-	f.NumElements(1, 100)
+	f.NumElements(1, 10)
 	f.Fuzz(&msg1)
 
 	msg1Data, err := msg1.Marshal()
@@ -129,13 +106,8 @@ func FuzzMsgWithdrawWithinBatch_structured(data []byte) int {
 		panic(err)
 	}
 
-	msg2Data, err := msg2.Marshal()
-	if err != nil {
-		panic(err)
-	}
-
-	if bytes.Equal(msg1Data, msg2Data) {
-		panic(errors.New("serialized messages don't match"))
+	if !reflect.DeepEqual(msg1, msg2) {
+		panic(errors.New("deserialized messages didn't match"))
 	}
 
 	return fleece.FuzzNormal
