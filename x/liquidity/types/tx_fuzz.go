@@ -5,9 +5,10 @@ package types
 import (
 	"bytes"
 	"errors"
+	"reflect"
+
 	gofuzz "github.com/google/gofuzz"
 	fleece "github.com/leastauthority/fleece/fuzzing"
-	"reflect"
 )
 
 func FuzzMsgSwapWithinBatch_raw(data []byte) int {
@@ -27,6 +28,10 @@ func FuzzMsgSwapWithinBatch_raw(data []byte) int {
 	}
 
 	if !reflect.DeepEqual(msg1, msg2) {
+		// TODO: only run during triage
+		//diff, _ := messagediff.PrettyDiff(msg1, msg2)
+		//fmt.Println(diff)
+
 		panic(errors.New("deserialized messages didn't' match"))
 	}
 
@@ -56,7 +61,11 @@ func FuzzMsgSwapWithinBatch_structured(data []byte) int {
 	}
 
 	if !reflect.DeepEqual(msg1, msg2) {
-		panic(errors.New("deserialized messages don't match"))
+		// TODO: only run during triage
+		//diff, _ := messagediff.PrettyDiff(msg1, msg2)
+		//fmt.Println(diff)
+
+		panic(errors.New("deserialized messages didn't match"))
 	}
 
 	return fleece.FuzzNormal
@@ -78,6 +87,10 @@ func FuzzMsgWithdrawWithinBatch_raw(data []byte) int {
 	}
 
 	if !reflect.DeepEqual(msg1, msg2) {
+		// TODO: only run during triage
+		//diff, _ := messagediff.PrettyDiff(msg1, msg2)
+		//fmt.Println(diff)
+
 		panic(errors.New("deserialized messages didn't' match"))
 	}
 
