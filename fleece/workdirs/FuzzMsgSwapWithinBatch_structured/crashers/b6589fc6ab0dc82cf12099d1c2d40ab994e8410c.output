@@ -1,4 +1,4 @@
-panic: serialized messages don't match
+panic: serialized messages didn't match
 
 goroutine 1 [running]:
 github.com/tendermint/liquidity/x/liquidity/types.FuzzMsgSwapWithinBatch_structured(0x7fde618f9000, 0x1, 0x1, 0x3)
