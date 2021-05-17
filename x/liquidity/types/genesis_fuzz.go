@@ -27,7 +27,7 @@ func FuzzGenesisState_raw(data []byte) int {
 		panic(err)
 	}
 
-	gen2 := MsgSwapWithinBatch{}
+	gen2 := GenesisState{}
 	if err := gen2.Unmarshal(gen1Data); err != nil {
 		panic(err)
 	}
