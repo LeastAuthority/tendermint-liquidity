@@ -1,0 +1,10 @@
+panic: deserialized states didn't match
+
+goroutine 1 [running]:
+github.com/tendermint/liquidity/x/liquidity/types.FuzzGenesisState_structured(0x7fcd68536000, 0x1, 0x1, 0x4)
+	/tmp/fuzzing/x/liquidity/types/genesis_fuzz.go:87 +0x4ef
+go-fuzz-dep.Main(0xc0002bff48, 0x6, 0x6)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/tendermint/liquidity/x/liquidity/types/go.fuzz.main/main.go:25 +0x9b
+exit status 2
