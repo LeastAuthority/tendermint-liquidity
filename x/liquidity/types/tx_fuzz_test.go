@@ -40,3 +40,19 @@ func TestFuzzMsgWithdrawWithinBatch_structured(t *testing.T) {
 
 	require.Zero(t, panics)
 }
+
+func TestFuzzMsgDepositWithinBatch_raw(t *testing.T) {
+	_, panics, _ := fleece.
+		MustNewCrasherIterator(env, FuzzMsgDepositWithinBatch_raw, filters...).
+		TestFailingLimit(t, crashLimit)
+
+	require.Zero(t, panics)
+}
+
+func TestFuzzMsgDepositWithinBatch_structured(t *testing.T) {
+	_, panics, _ := fleece.
+		MustNewCrasherIterator(env, FuzzMsgDepositWithinBatch_structured, filters...).
+		TestFailingLimit(t, crashLimit)
+
+	require.Zero(t, panics)
+}
