@@ -51,8 +51,8 @@ func FuzzGenesisState_structured(data []byte) int {
 	}
 
 	f := gofuzz.NewFromGoFuzz(data)
-	f.NilChance(0)
-	f.NumElements(1, 10)
+	f.NilChance(0.2)
+	f.NumElements(1, 2)
 	f.Fuzz(&gen1)
 
 	gen1Data, err := gen1.Marshal()
@@ -60,7 +60,7 @@ func FuzzGenesisState_structured(data []byte) int {
 		panic(err)
 	}
 
-	gen2 := MsgSwapWithinBatch{}
+	gen2 := GenesisState{}
 	if err := gen2.Unmarshal(gen1Data); err != nil {
 		panic(err)
 	}
