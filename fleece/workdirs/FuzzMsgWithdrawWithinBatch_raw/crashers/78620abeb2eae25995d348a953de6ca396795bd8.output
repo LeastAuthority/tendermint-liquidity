@@ -1,0 +1,53 @@
+program hanged (timeout 10 seconds)
+
+SIGABRT: abort
+PC=0x468a71 m=0 sigcode=0
+
+goroutine 0 [idle]:
+runtime.futex(0x2039868, 0x80, 0x0, 0x0, 0x7f4e00000000, 0x2000010000000, 0x2030003, 0x80c000e80000, 0x7ffcb9ad8e38, 0x40cc1f, ...)
+	runtime/sys_linux_amd64.s:567 +0x21
+runtime.futexsleep(0x2039868, 0x0, 0xffffffffffffffff)
+	runtime/os_linux.go:45 +0x46
+runtime.notesleep(0x2039868)
+	runtime/lock_futex.go:151 +0x9f
+runtime.stopm()
+	runtime/proc.go:1834 +0xc0
+runtime.findrunnable(0xc00003e000, 0x0)
+	runtime/proc.go:2366 +0xa0d
+runtime.schedule()
+	runtime/proc.go:2526 +0x2fc
+runtime.park_m(0xc000000180)
+	runtime/proc.go:2696 +0x9d
+runtime.mcall(0x7f4e8b31b8a0)
+	runtime/asm_amd64.s:318 +0x5b
+
+goroutine 1 [semacquire]:
+runtime.GOMAXPROCS(0x1, 0x210000)
+	runtime/debug.go:29 +0x8e
+go-fuzz-dep.Main(0xc000e9ff58, 0x4, 0x4)
+	go-fuzz-dep/main.go:24 +0xe8
+main.main()
+	github.com/tendermint/liquidity/x/liquidity/types/go.fuzz.main/main.go:21 +0x7a
+
+rax    0xca
+rbx    0x2039720
+rcx    0x468a73
+rdx    0x0
+rdi    0x2039868
+rsi    0x80
+rbp    0x7ffcb9ad8e00
+rsp    0x7ffcb9ad8db8
+r8     0x0
+r9     0x0
+r10    0x0
+r11    0x286
+r12    0x3
+r13    0x2038c00
+r14    0x16d5c6c
+r15    0x0
+rip    0x468a71
+rflags 0x286
+cs     0x33
+fs     0x0
+gs     0x0
+exit status 2

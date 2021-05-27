@@ -1,0 +1,10 @@
+panic: proto: wrong wireType = 2 for field PoolId
+
+goroutine 1 [running]:
+github.com/tendermint/liquidity/x/liquidity/types.FuzzGenesisState_structured(0x7f92eeeaa000, 0x1, 0x1, 0x3)
+	/tmp/fuzzing/x/liquidity/types/genesis_fuzz.go:62 +0x63c
+go-fuzz-dep.Main(0xc000d5ff48, 0x6, 0x6)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/tendermint/liquidity/x/liquidity/types/go.fuzz.main/main.go:25 +0x9b
+exit status 2

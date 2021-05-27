@@ -1,0 +1,10 @@
+panic: deserialized messages didn't' match
+
+goroutine 1 [running]:
+github.com/tendermint/liquidity/x/liquidity/types.FuzzMsgDepositWithinBatch_raw(0x7f801e808000, 0x44, 0x44, 0x3)
+	/tmp/fuzzing/x/liquidity/types/tx_fuzz.go:169 +0x3ee
+go-fuzz-dep.Main(0xc000e5ff38, 0x8, 0x8)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/tendermint/liquidity/x/liquidity/types/go.fuzz.main/main.go:29 +0xb8
+exit status 2

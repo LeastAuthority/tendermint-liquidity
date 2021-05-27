@@ -1,0 +1,4 @@
+panic: deserialized states didn't' match
+github.com/tendermint/liquidity/x/liquidity/types.FuzzMsgDepositWithinBatch_raw
+go-fuzz-dep.Main
+main.main

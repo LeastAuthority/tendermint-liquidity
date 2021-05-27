@@ -1,0 +1,62 @@
+
+�B�
+<html>
+	<head>
+		<title>events</title>
+	</head>
+	<styト	グラムグラムトンクルゼイロクローネ	ケース	コルナ	コーポサイクルサンチem;
+		}
+		table#req-status td.active {
+			padding-right: 1em;
+		}
+		table#req-status td.empty {
+			color: #aaa;
+		}
+		table#reqs {
+			margin-top: 1em;
+		}
+		table#reqs tr.first {
+			{{if $.Expanded}}font-weight: bold;{{end}}
+		}
+		table#reqs td {
+			font-family: monospace;
+		}
+		table#reqs td.when {
+			text-align: right;
+			white-space: nowrap;
+		}
+		table#reqs td.elapsed {
+			padding: 0 0.5em;
+			text-align: right;
+			white-space: preン	ガンマギガ	ギニーキュリーギルダーキロキログラムキロメートルキロワッevents</h1>
+
+<table id="req-status">
+	{{range $i, $fam := .Families}}
+	<tr>
+		<td class="family">{{$fam}}</td>
+
+	        {{range $j, $bucket := $.Buckets}}
+	        {{$n := index $.Counts $i $j}}
+		<td class="{{if not $bucket.MaxErrAge}}active{{end}}{{if not $n}}empty{{end}}">
+	                {{if $n}}<a href="?fam={{$fam}}&b={{$j}}{{if $.Expanded}}&exp=1{{end}}">{{end}}
+		        [{{$n}} {{$bucket.String}}]
+			{{if $n}}</a>{{end}}
+		</td>
+                {{end}}
+
+	</tr>{{end}}
+</table>
+
+{{if $.EventLogs}}
+<hr />
+<h3>Family: {{$.Family}}</h3>
+
+{{if $.Expanded}}<a href="?fam={{$.Family}}&b={{$.Bucket}}">{{end}}
+[Summary]{{if $.Expanded}}</a>{{end}}
+
+{{if not $.Expanded}}<a href="?fam={{$.Family}}&b={{$.Bucket}}&exp=1">{{end}}
+[Expanded]{{if not $.Expanded}}</a>{{end}}
+
+<table id="reqs">
+	<tr><th>When</th><th>Elapsed</th></tr>
+	{{range $el
